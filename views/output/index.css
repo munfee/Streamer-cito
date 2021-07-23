@@ -1,0 +1,100 @@
+/*!********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/movie.css ***!
+  \********************************************************************************/
+body{
+  padding:2%
+}
+header {
+    background: orange;
+    padding:10px;
+    max-width:90%;
+    min-width:500px;
+    border-radius: 30px;
+    margin: 20px auto;
+  }
+ header * {
+   display: inline-block;
+   font-size:1.8rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right:16px;
+  margin-left: 16px;
+ }
+ header p {
+   float:right;
+ }
+a {
+  text-decoration:none;
+  color: inherit;
+  font-weight: bold;
+}
+video {
+  display:block;
+  width: 80%;
+  min-width: 500px;
+  margin:auto;
+  border-radius: 30px;
+}
+form {
+  width: 30vw;
+  display: inline-block;
+  margin: 30px;
+}
+.message {
+    display: inline-block;
+
+}
+#comment-box {
+    width: 550px;
+    height : 500px;
+    border: 2px solid black;
+    box-shadow:0px 0px 20px 3px orange inset;
+    border-radius: 10px;
+    margin: 0 30px;
+    overflow:scroll;
+    
+}
+#comment button{
+  display:block
+}
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/home.css ***!
+  \*******************************************************************************/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: white; 
+}
+h1{
+  background: orange;
+  padding:10px;
+  width:100%;
+  border-radius: 30px;
+}
+img {
+  width: 300px;
+  height: 300px;
+}
+
+a {
+  color: #00B7FF;
+}
+.movie-list {
+  display: inline-block;
+  margin: 10px
+
+}
+.movie-list p {
+  text-align: center;
+  background: #c68b1f;
+  border-radius: 30px;
+  margin-top:2px;
+  font-size: 18px;
+}
+#search, #search:active{
+  position: absolute;
+  top:14.5vh;
+  left: 60vw;
+  border-radius: 30px;
+}
+

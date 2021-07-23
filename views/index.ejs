@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Streamer-cito</title>
+  <link rel="stylesheet" href="/stylesheets/home.css">
+</head>
+
+<body>
+  <h1>
+    Streamer-cito
+  </h1>
+  <input type="text" id="search" placeholder="search for a video...">
+  <div id="container">
+    <% movies.forEach(movie=> { %>
+      <div class="movie-list" id="<%=movie%>">
+        <a href="<%=movie%>"><img src="/images/<%=movie%>.jpg" alt="<%=movie%>"></a>
+        <p>
+          <%=movie%>
+        </p>
+      </div>
+      <%});%>
+  </div>
+  <script src="/javascripts/home.js"></script>
+</body>
+
+</html>
