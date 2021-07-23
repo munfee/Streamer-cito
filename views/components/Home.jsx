@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: null,
+            movies: [],
             loading: true,
             search: ''
         }
@@ -13,18 +14,34 @@ class Home extends React.Component {
 
     handleSearch(e) {
         this.setState({
-            search: e.target.value
+            search: e.target.value.toLowerCase()
         })
     }
 
     componentDidMount() {
         fetch('/movielist').
             then(res => res.json()).
-            then(({ movies }) => this.setState({ movies })).
+            then(({ movies }) => this.setState({
+                movies,
+                loading: false
+            })).
             catch(err => console.log(err));
     }
 
     render() {
+        const { movies, loading, search } = this.state;
+        const loading = loading && <div id="loading"></div>;
+        let movieList = movies.filter(movie => movie.toLowerCase().includes(search));
+        movieList = movieList.length === 0 ? 'No results!' : movieList.map(movie => (
+            <div class="movie-list" id={movie} key={movie}>
+                <Link to={`/${movie}`}>
+                    <img src={`/images/${movie}.jpg`} alt={`${movie} poster`} />
+                    <p>
+                        {movie}
+                    </p>
+                </Link>
+            </div>
+        ));
         return (
             <React.Fragment>
                 <header>
@@ -34,13 +51,7 @@ class Home extends React.Component {
                     <input type="text" id="search" onChange={this.handleSearch} placeholder="search for a video..." />
                 </header>
                 <div id="container">
-                    <div class="movie-list" id="">
-                        <a href="<%=movie%>"><img src="/images/<%=movie%>.jpg" alt="<%=movie%>" />
-                            <p>
-
-                            </p>
-                        </a>
-                    </div>
+                    {loading || movieList}
                 </div>
             </React.Fragment>
         );
