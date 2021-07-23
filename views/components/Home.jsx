@@ -30,7 +30,7 @@ class Home extends React.Component {
 
     render() {
         const { movies, loading, search } = this.state;
-        const loading = loading && <div id="loading"></div>;
+        const load = loading && <div id="loading"></div>;
         let movieList = movies.filter(movie => movie.toLowerCase().includes(search));
         movieList = movieList.length === 0 ? 'No results!' : movieList.map(movie => (
             <div class="movie-list" id={movie} key={movie}>
@@ -51,7 +51,7 @@ class Home extends React.Component {
                     <input type="text" id="search" onChange={this.handleSearch} placeholder="search for a video..." />
                 </header>
                 <div id="container">
-                    {loading || movieList}
+                    {load || movieList}
                 </div>
             </React.Fragment>
         );

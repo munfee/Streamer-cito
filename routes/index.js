@@ -81,7 +81,7 @@ router.post('/:movie/comment', function (req, res, next) {
   }
 });
 
-//let userStore = []; ----- mongoose-less alternative 
+let userStore = []; //----- mongoose-less alternative 
 
 const userSchema = new mongoose.Schema({
   username: String
@@ -96,7 +96,6 @@ router.get('/username', function (req, res, next) {
 
 router.post('/username', function (req, res, next) {
   let username = req.body.username;
-  //if (userStore.some(user => user === username)) res.json({ payload: null, message: "Username already taken" });
   if (userStore.some(user => user === username)) res.json({ payload: null, message: "Username already taken" });
   else {
     userStore.push(username);
