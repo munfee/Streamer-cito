@@ -11,7 +11,7 @@ class Forms extends React.Component {
         }
         this.fetchUsername = this.fetchUsername.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit =this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     fetchUsername() {
@@ -25,6 +25,16 @@ class Forms extends React.Component {
                 })
             })
             .catch(err => console.log(err));
+    }
+
+    handleSubmit(e){
+
+    }
+
+    handleChange(e) {
+        this.setState({
+            [`${e.target.name}Input`]: e.target.value
+        })
     }
 
     componentDidMount() {
@@ -54,7 +64,7 @@ class Forms extends React.Component {
                     <textarea name="comment" onChange={this.handleChange} value={commentInput} ></textarea>
                     <button type="submit">Send Comment</button>
                 </form>
-                <p id="message"></p>
+                <p id="message">{message}</p>
             </React.Fragment>
         );
     }
