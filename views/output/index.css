@@ -1,9 +1,99 @@
-/*!********************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/movie.css ***!
-  \********************************************************************************/
-body{
-  padding:2%
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/home.css ***!
+  \*******************************************************************************/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #cacaca;
+  display: flex;
+  justify-content: center;
 }
+header {
+  background: orange;
+  max-width: 1000px;
+  min-width:100px;
+  padding:10px;
+  border-radius: 30px;
+}
+img {
+  width: 300px;
+  height: 300px;
+}
+a{
+  text-decoration:none;
+  color: inherit;
+}
+.movie-list {
+  display: inline-block;
+  margin: 10px;
+
+}
+.movie-list p {
+  margin: 0 auto;
+  height:21px;
+  max-width: 300px;
+  text-align: center;
+  background:rgb(198, 139, 31); 
+  border-radius: 30px;
+  margin-top:2px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#search, #search:active{
+  width: 220px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  float:right;
+}
+@keyframes rotate {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+#loading{
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  border: 20px #1b1b1a solid;
+  border-top: 20px #c68b1f solid;
+  border-radius: 50%;
+  animation-name: rotate;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count:infinite;
+}
+#container{
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media screen and (max-width: 775px){
+  #container{
+    justify-content: center;
+    }
+}
+@media screen and (max-width: 630px){
+ #search, #search:active{
+   display: block;
+     float: none;
+     margin: 0 auto;
+    }
+    header h1{
+      display:block;
+      margin: 0 auto;
+      text-align:center;
+    }
+  }
+small {
+  display:block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 header {
     background: orange;
     padding:10px;
@@ -57,44 +147,3 @@ form {
 #comment button{
   display:block
 }
-/*!*******************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/home.css ***!
-  \*******************************************************************************/
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: white; 
-}
-h1{
-  background: orange;
-  padding:10px;
-  width:100%;
-  border-radius: 30px;
-}
-img {
-  width: 300px;
-  height: 300px;
-}
-
-a {
-  color: #00B7FF;
-}
-.movie-list {
-  display: inline-block;
-  margin: 10px
-
-}
-.movie-list p {
-  text-align: center;
-  background: #c68b1f;
-  border-radius: 30px;
-  margin-top:2px;
-  font-size: 18px;
-}
-#search, #search:active{
-  position: absolute;
-  top:14.5vh;
-  left: 60vw;
-  border-radius: 30px;
-}
-

@@ -83,7 +83,7 @@ a{
       margin: 0 auto;
       text-align:center;
     }
-    }
+  }
 small {
   display:block;
   width: 100%;
@@ -143,3 +143,4 @@ form {
 }
 #comment button{
   display:block
+}
