@@ -17,18 +17,33 @@ class Forms extends React.Component {
     fetchUsername() {
         fetch('/username')
             .then(res => res.json())
-            .then(({ payload, message }) => {
-                console.log(payload, message);
+            .then(({ payload }) => {
+                console.log(payload);
                 this.setState({
                     username: payload,
-                    message
                 })
             })
             .catch(err => console.log(err));
     }
 
-    handleSubmit(e){
-
+    handleSubmit(e) {
+        e.preventDefault();
+        fetch(e.target.action, {
+            method: e.target.dataset.method,
+            body: JSON.stringify({ [e.target.id]: this.state[`${e.target.id}Input`] }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => res.json())
+            .then(({ payload = null, message }) => {
+                console.log(payload, message);
+                if (e.target.id === 'username') this.setState({ username: payload });
+                if (e.target.id === 'comment') {
+                    this.props.printComments();
+                    this.setState({ commentInput: '' });
+                }
+                this.setState({ message })
+            })
+            .catch(err => console.log(err));
     }
 
     handleChange(e) {
@@ -52,7 +67,7 @@ class Forms extends React.Component {
         const style = { opacity: (username && 0.5) || 1 };
         return (
             <React.Fragment>
-                <form data-method={username ? "DELETE" : "POST"} id="username" onSubmit={this.handleSubmit}>
+                <form data-method={username ? "DELETE" : "POST"} id="username" onSubmit={this.handleSubmit} action="/username">
                     <label>
                         Username: <input style={style} type="text" disabled={!!username}
                             name="username" onChange={this.handleChange} value={usernameInput} />
@@ -60,7 +75,7 @@ class Forms extends React.Component {
                     <button type="submit">{username ? 'Delete' : 'Send'}</button>
                 </form>
                 {this.props.children}
-                <form data-method="POST" id="comment" onSubmit={this.handleSubmit}>
+                <form data-method="POST" id="comment" onSubmit={this.handleSubmit} action={`/${this.props.match.params.movie}/comment`}>
                     <textarea name="comment" onChange={this.handleChange} value={commentInput} ></textarea>
                     <button type="submit">Send Comment</button>
                 </form>
