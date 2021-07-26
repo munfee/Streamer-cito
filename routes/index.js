@@ -11,7 +11,7 @@ db.once('open', function () {
   console.log('connected');
 });
 
-const imgDir = path.join(__dirname, '..', 'public', 'images');
+const imgDir = path.join(__dirname, '..','..', 'img');
 
 router.get('/movielist', function (req, res, next) {
   fs.promises.readdir(imgDir)
