@@ -4,9 +4,14 @@
   "private": true,
   "main": "babelRoot.js",
   "homepage": "./",
+  "author": "Philippe Allard Ouellet ",
+  "license": "MIT",
   "scripts": {
     "build": "webpack --mode=development",
     "start": "nodemon ./bin/www"
+  },
+  "engines": {
+    "node": "14.17.0"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
