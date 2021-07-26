@@ -1,14 +1,14 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #cacaca;
+  background: #c1c1c1;
   display: flex;
   justify-content: center;
 }
 header {
   background: orange;
   max-width: 1000px;
-  min-width:100px;
+  min-width:50px;
   padding:10px;
   border-radius: 30px;
 }
@@ -75,11 +75,13 @@ a{
 @media screen and (max-width: 630px){
  #search, #search:active{
    display: block;
+     min-width:50px;
      float: none;
      margin: 0 auto;
     }
     header h1{
       display:block;
+      min-width:50px;
       margin: 0 auto;
       text-align:center;
     }
@@ -90,15 +92,6 @@ small {
   text-align: center;
   margin-top: 20px;
 }
-
-header {
-    background: orange;
-    padding:10px;
-    max-width:90%;
-    min-width:500px;
-    border-radius: 30px;
-    margin: 20px auto;
-  }
  header * {
    display: inline-block;
    font-size:1.8rem;
@@ -109,6 +102,7 @@ header {
  }
  header p {
    float:right;
+   font-style: italic;
  }
 a {
   text-decoration:none;
@@ -121,6 +115,7 @@ video {
   min-width: 500px;
   margin:auto;
   border-radius: 30px;
+  margin-top: 10px;
 }
 form {
   width: 30vw;
@@ -131,8 +126,20 @@ form {
     display: inline-block;
 
 }
+.comment-wrap{
+  padding: 5px;
+}
+.comment-wrap small{
+  text-align: right;
+}
+.comment-wrap p {
+  margin-left: 10px;
+}
+.light{
+  
+}
 #comment-box {
-    width: 550px;
+    min-width: 500px;
     height : 500px;
     border: 2px solid black;
     box-shadow:0px 0px 20px 3px orange inset;

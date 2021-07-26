@@ -33,7 +33,7 @@ class Home extends React.Component {
         const load = loading && <div id="loading"></div>;
         let movieList = movies.filter(movie => movie.toLowerCase().includes(search));
         movieList = movieList.length === 0 ? 'No results!' : movieList.map(movie => (
-            <div class="movie-list" id={movie} key={movie}>
+            <div className="movie-list" id={movie} key={movie}>
                 <Link to={`/${movie}`}>
                     <img src={`/images/${movie}.jpg`} alt={`${movie} poster`} />
                     <p>
