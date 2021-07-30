@@ -1,5 +1,8 @@
+/*!*******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./public/stylesheets/home.css ***!
+  \*******************************************************************************/
 body {
-  padding: 50px;
+  width: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #c1c1c1;
   display: flex;
@@ -21,11 +24,10 @@ a{
   color: inherit;
 }
 .movie-list {
-  display: inline-block;
-  margin: 10px;
+  margin:0 5px;
 
 }
-.movie-list p {
+.movie-list p{
   margin: 0 auto;
   height:21px;
   max-width: 300px;
@@ -52,7 +54,7 @@ a{
 #loading{
   width: 50px;
   height: 50px;
-  margin: 0 auto;
+  margin: 10px auto;
   border: 20px #1b1b1a solid;
   border-top: 20px #c68b1f solid;
   border-radius: 50%;
@@ -63,6 +65,7 @@ a{
 }
 #container{
   max-width: 1000px;
+  margin-top:10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -148,6 +151,21 @@ form {
     overflow:scroll;
     
 }
+#video-title {
+  margin: 0 auto;
+  padding:0 10px;
+  max-width: 600px;
+  text-align: center;
+  background:rgb(198, 139, 31); 
+  border-radius: 20px;
+  margin-top:2px;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #comment button{
   display:block
 }
+

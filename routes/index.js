@@ -2,16 +2,11 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 const path = require('path')
-const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/streamercito', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected');
-});
+const Comment = require('../db.js').comment;
+const User= require('../db.js').user; // TODO user database
 
-const imgDir = path.join(__dirname, '..','..', 'img');
+const imgDir = path.join(__dirname, '..','public', 'images');
 
 router.get('/movielist', function (req, res, next) {
   fs.promises.readdir(imgDir)
@@ -47,13 +42,6 @@ router.get('/:movie/play', function (req, res, next) {
   videoStream.pipe(res);
 });
 
-const commentSchema = new mongoose.Schema({
-  movie: String,
-  time: String,
-  username: String,
-  comment: String
-});
-const Comment = mongoose.model('Comment', commentSchema);
 // let commentStore = new Map; ------- mongoose-less alternative
 
 router.get('/:movie/comment', function (req, res, next) {
@@ -82,11 +70,6 @@ router.post('/:movie/comment', function (req, res, next) {
 });
 
 let userStore = []; //----- mongoose-less alternative 
-
-const userSchema = new mongoose.Schema({
-  username: String
-});
-const User = mongoose.model('User', userSchema);
 
 router.get('/username', function (req, res, next) {
   if (req.session.username) res.json({ payload: req.session.username });

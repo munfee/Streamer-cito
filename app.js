@@ -4,13 +4,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const client = require('./db.js').client;
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
-// view engine setup
+// in case of swap to view model
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -20,6 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
   secret: 'temp secret',
+  store: MongoStore.create({
+    mongoUrl: client
+  }),
   resave: 'false',
   saveUninitialized: 'false'
 }));

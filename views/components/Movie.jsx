@@ -23,6 +23,7 @@ class Movie extends React.Component {
 
     }
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.printComments();
     }
 
@@ -34,13 +35,11 @@ class Movie extends React.Component {
                     <Link to='/'>
                         Streamer-cito
                     </Link>
-                    <p>
-                        {this.props.match.params.movie}
-                    </p>
                 </header>
                 <video controls>
                     <source src={`/${this.props.match.params.movie}/play`} type="video/mp4" />
                 </video>
+                <p id="video-title">{this.props.match.params.movie}</p>
                 <Forms match={this.props.match} printComments={this.printComments}>
                     <Comments comments={this.state.comments} />
                 </Forms>
