@@ -9,6 +9,7 @@ Every movie can also be commented on by creating a temporary session username.
 
 * add a "videos" folder and a "images" folder in the public folder to serve
 your videos and your associated thumbnails respectively. Make sure they have the same name ! (Only Mp4, WebM amd Ogg extension supported at this moment)
+* npm install
 * npm run build to generate the output bundle
 * npm run start to start up the app/server
 
