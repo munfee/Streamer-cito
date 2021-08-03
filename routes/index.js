@@ -22,7 +22,7 @@ router.get('/movielist', function (req, res, next) {
 router.get('/:movie/play', function (req, res, next) {
   const range = req.headers.range;
 
-  const videoPath = path.join(__dirname, '..', 'public', 'vid', `${req.params.movie}.mp4`);
+  const videoPath = path.join(__dirname, '..', 'public', 'videos', `${req.params.movie}.mp4`);
   const videoSize = fs.statSync(videoPath).size;
 
   const chunk = 10 ** 6;
