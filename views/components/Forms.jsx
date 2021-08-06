@@ -26,7 +26,7 @@ class Forms extends React.Component {
             .catch(err => console.log(err));
     }
 
-    handleSubmit(e) {
+    handleSubmit(e) { // handle submit for both username and comment forms 
         e.preventDefault();
         fetch(e.target.action, {
             method: e.target.dataset.method,
@@ -46,7 +46,7 @@ class Forms extends React.Component {
             .catch(err => console.log(err));
     }
 
-    handleChange(e) {
+    handleChange(e) { //handle changes for both username and comment forms 
         this.setState({
             [`${e.target.name}Input`]: e.target.value
         })

@@ -105,7 +105,8 @@ router.get('/', function (req, res, next) {
 router.get('/:movie', function (req, res, next) {
   //if (files.includes(movie)) {
   //movie = movie.replace(/\s/g, '%20');
-  //res.render('movie', { movie });} --- React-less alternative 
+  //res.render('movie', { movie });
+//   } --- template languaje (EJS) alternative 
   res.sendFile(reactEntry);
 });
 
