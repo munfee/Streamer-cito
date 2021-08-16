@@ -8,9 +8,11 @@ class Movie extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: []
+            comments: [],
+            showError: false
         }
         this.printComments = this.printComments.bind(this);
+        this.showError = this.showError.bind(this);
     }
     printComments() {
         fetch(`${this.props.match.params.movie}/comment`)
@@ -22,6 +24,13 @@ class Movie extends React.Component {
             .catch(err => console.log(err));
 
     }
+
+    showError(e) { 
+        this.setState({
+            showError: true
+        })
+    }
+
     componentDidMount() {
         window.scrollTo(0, 0);
         this.printComments();
@@ -36,9 +45,13 @@ class Movie extends React.Component {
                         Streamer-cito
                     </Link>
                 </header>
-                <video controls>
+                <div id='video-box'>
+                <video controls onError={this.showError}>
                     <source src={`/${this.props.match.params.movie}/play`} type="video/mp4" />
+                    Sorry, your browser does not support HTML videos
                 </video>
+                {this.state.showError? <div id="video-error">woops</div>: null}
+                </div>
                 <p id="video-title">{this.props.match.params.movie}</p>
                 <Forms match={this.props.match} printComments={this.printComments}>
                     <Comments comments={this.state.comments} />
