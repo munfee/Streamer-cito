@@ -166,14 +166,21 @@ form {
   cursor: pointer;
 }
 
+#video-box {
+  min-width:500px;
+  margin: 0 auto;
+  height: auto;
+}
+
 #video-error {
   position: absolute;
-  width: 100%;
-  margin: 0 auto;
+  color: #ff4343;
+  user-select: none;
+  bottom: 65%;
+  left: 50%;
+  cursor:default;
 }
 
 #comment button{
   display:block
 }
-
-
